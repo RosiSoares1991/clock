@@ -25,16 +25,15 @@ h1 {
     color: white;
 }
 
-.clock {
+#time {
     font-family: 'Share Teck Mono', monospace;
     text-align: center;
     color: #daf6ff;
-    text-shadow: 0 0 20px rgba(10, 175, 230, 1),
-        0 0 20px rgba(10, 175, 230, 0);
+    text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
     font-size: 48px;
 }
 
-.date {
+#date {
     font-family: 'Share Teck Mono', monospace;
     text-align: right;
     color: #daf6ff;

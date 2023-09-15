@@ -1,24 +1,27 @@
-function updateClock() {
-    const now = new Date();
-    const hour = String(now.getHours()).padStart(2, '0');
-    const minute = String(now.getMinutes()).padStart(2, '0');
-    const second = String(now.getSeconds()).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const month = String(now.getMonth() +1).padStart(2, '0');
-    const year = now.getFullYear();
+const convertNumberToString = (number) => number.toString().padStart(2, '0')
 
+const getTime = () => ({
+    date: new Date().toLocaleDateString(),
+    hour: convertNumberToString(new Date().getHours()),
+    minute: convertNumberToString(new Date().getMinutes()),
+    second: convertNumberToString(new Date().getSeconds())
+})
 
-    document.getElementById('hour').textContent = hour;
-    document.getElementById('minute').textContent = minute;
-    document.getElementById('second').textContent = second;
-    document.getElementById('day').textContent = day;
-    document.getElementById('month').textContent = month;
-    document.getElementById('year').textContent = year;
-
+const updateTime = (type, value) => {
+    document.getElementById(type).textContent = value
 }
 
+const getClock = () => {
+    const { date, hour, minute, second } = getTime();
 
+    const time = `${hour} : ${minute} : ${second}`
 
-setInterval(updateClock, 1000);
+    updateTime('date', date)
+    updateTime('time', time)
 
-updateClock(); 
+    setTimeout(() => {
+        getClock()
+    }, 1000)
+}
+
+getClock();
